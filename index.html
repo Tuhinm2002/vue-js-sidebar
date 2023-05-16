@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>Vue app</title>
+</head>
+<body>
+    <input type="checkbox" id="check">
+    <label for="check">
+        <i class="fa-solid fa-bars fa-2x" id="btn"></i>
+        <i class="fa-solid fa-xmark fa-2x" id="cancel"></i>
+    </label>
+    <div class="sidebar" id="side">
+        <header>My App</header>
+        <ul>
+            <li v-for="item in items"><a href="">
+                <i :class="['fas',item.icon]" style="font-size: 3em;"></i>
+            </a></li>
+        </ul>
+        <footer>
+        <a href=""><i :class="['fas',  icons]" style="font-size: 3em;"></i></a>
+        </footer>
+    </div>
+    <script>
+        Vue.createApp(
+            {
+            data(){
+                return {
+                    icons : "fa-sun",
+                    items : [{icon: "fa-house"},
+                            {icon: "fa-star"},
+                            {icon: "fa-heart"},
+                            {icon: "fa-file"}
+                        ]
+                    
+                };
+            }
+        }
+        ).mount("#side")
+
+    </script>
+</body>
+</html>
